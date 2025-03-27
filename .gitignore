@@ -1,0 +1,12 @@
+# IDE
+.idea
+.vscode
+
+# Build
+build/
+
+# Database
+*.db
+
+# Images
+images/ 

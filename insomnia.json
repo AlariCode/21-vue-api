@@ -1,0 +1,183 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2024-03-19",
+  "__export_source": "insomnia.desktop.app",
+  "resources": [
+    {
+      "_id": "req_bookmark_api_env",
+      "parentId": "wrk_bookmark_api",
+      "modified": 1710831000000,
+      "created": 1710831000000,
+      "name": "Bookmark API Environment",
+      "data": {
+        "base_url": "http://localhost:3000/api"
+      },
+      "_type": "environment"
+    },
+    {
+      "_id": "wrk_bookmark_api",
+      "parentId": null,
+      "modified": 1710831000000,
+      "created": 1710831000000,
+      "name": "Bookmark API",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_get_profile",
+      "parentId": "wrk_bookmark_api",
+      "modified": 1710831000000,
+      "created": 1710831000000,
+      "url": "{{ _.base_url }}/profile",
+      "name": "Get Profile",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "_type": "request"
+    },
+    {
+      "_id": "req_create_category",
+      "parentId": "wrk_bookmark_api",
+      "modified": 1710831000000,
+      "created": 1710831000000,
+      "url": "{{ _.base_url }}/categories",
+      "name": "Create Category",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Разработка\",\n\t\"alias\": \"development\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_get_categories",
+      "parentId": "wrk_bookmark_api",
+      "modified": 1710831000000,
+      "created": 1710831000000,
+      "url": "{{ _.base_url }}/categories",
+      "name": "Get All Categories",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "_type": "request"
+    },
+    {
+      "_id": "req_update_category",
+      "parentId": "wrk_bookmark_api",
+      "modified": 1710831000000,
+      "created": 1710831000000,
+      "url": "{{ _.base_url }}/categories/1",
+      "name": "Update Category",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Веб-разработка\",\n\t\"alias\": \"web-development\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_delete_category",
+      "parentId": "wrk_bookmark_api",
+      "modified": 1710831000000,
+      "created": 1710831000000,
+      "url": "{{ _.base_url }}/categories/1",
+      "name": "Delete Category",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "_type": "request"
+    },
+    {
+      "_id": "req_create_bookmark",
+      "parentId": "wrk_bookmark_api",
+      "modified": 1710831000000,
+      "created": 1710831000000,
+      "url": "{{ _.base_url }}/bookmarks",
+      "name": "Create Bookmark",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"category_id\": 1,\n\t\"url\": \"https://github.com/gofiber/fiber\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_delete_bookmark",
+      "parentId": "wrk_bookmark_api",
+      "modified": 1710831000000,
+      "created": 1710831000000,
+      "url": "{{ _.base_url }}/bookmarks/1",
+      "name": "Delete Bookmark",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "_type": "request"
+    },
+    {
+      "_id": "req_get_category_bookmarks_by_date",
+      "parentId": "wrk_bookmark_api",
+      "modified": 1710831000000,
+      "created": 1710831000000,
+      "url": "{{ _.base_url }}/categories/1/bookmarks",
+      "name": "Get Category Bookmarks (Sort by Date)",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "sort",
+          "value": "date"
+        }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_get_category_bookmarks_by_title",
+      "parentId": "wrk_bookmark_api",
+      "modified": 1710831000000,
+      "created": 1710831000000,
+      "url": "{{ _.base_url }}/categories/1/bookmarks",
+      "name": "Get Category Bookmarks (Sort by Title)",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "sort",
+          "value": "title"
+        }
+      ],
+      "_type": "request"
+    }
+  ]
+} 
