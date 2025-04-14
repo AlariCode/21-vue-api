@@ -11,7 +11,8 @@
       "created": 1710831000000,
       "name": "Bookmark API Environment",
       "data": {
-        "base_url": "http://localhost:3000/api"
+        "base_url": "http://localhost:3000/api",
+        "auth_token": "jwt_token_here"
       },
       "_type": "environment"
     },
@@ -24,6 +25,47 @@
       "description": "",
       "scope": "collection",
       "_type": "workspace"
+    },
+    {
+      "_id": "req_login",
+      "parentId": "wrk_bookmark_api",
+      "modified": 1710831000000,
+      "created": 1710831000000,
+      "url": "{{ _.base_url }}/auth/login",
+      "name": "Login",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"a@a.ru\",\n\t\"password\": \"1\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_get_auth_profile",
+      "parentId": "wrk_bookmark_api",
+      "modified": 1710831000000,
+      "created": 1710831000000,
+      "url": "{{ _.base_url }}/auth/profile",
+      "name": "Get Auth Profile",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.auth_token }}"
+        }
+      ],
+      "_type": "request"
     },
     {
       "_id": "req_get_profile",

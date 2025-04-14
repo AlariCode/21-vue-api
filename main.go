@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bookmark-api/internal/app/auth"
 	"bookmark-api/internal/app/bookmarks"
 	"bookmark-api/internal/app/categories"
 	"bookmark-api/internal/app/profile"
@@ -18,6 +19,11 @@ func main() {
 	fiberApp := fiber.New()
 
 	api := fiberApp.Group("/api")
+
+	// Auth routes
+	authGroup := api.Group("/auth")
+	authGroup.Post("/login", auth.Login)
+	authGroup.Get("/profile", auth.JWTMiddleware(), auth.GetProfile)
 
 	// Profile route
 	api.Get("/profile", profile.Get)
