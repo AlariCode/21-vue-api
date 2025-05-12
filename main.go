@@ -9,6 +9,7 @@ import (
 	"log"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 )
 
 func main() {
@@ -17,6 +18,14 @@ func main() {
 	}
 
 	fiberApp := fiber.New()
+
+	// Настройка CORS для разрешения всех запросов
+	fiberApp.Use(cors.New(cors.Config{
+		AllowOrigins:     "*",
+		AllowMethods:     "GET,POST,PUT,DELETE,PATCH",
+		AllowHeaders:     "Origin, Content-Type, Accept, Authorization",
+		AllowCredentials: true,
+	}))
 
 	api := fiberApp.Group("/api")
 
