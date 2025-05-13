@@ -24,7 +24,7 @@ func main() {
 		AllowOrigins:     "*",
 		AllowMethods:     "GET,POST,PUT,DELETE,PATCH",
 		AllowHeaders:     "Origin, Content-Type, Accept, Authorization",
-		AllowCredentials: true,
+		AllowCredentials: false,
 	}))
 
 	api := fiberApp.Group("/api")
